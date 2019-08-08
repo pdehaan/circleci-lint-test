@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  lint:
+    docker:
+      - image: circleci/node
+    steps:
+      - attach_workspace:
+        at: .
+      - run:
+          name: install-npm
+          command: npm ci
+      - run:
+          name: lint
+          command: npm run lint
