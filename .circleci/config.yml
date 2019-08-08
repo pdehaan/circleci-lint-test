@@ -22,12 +22,13 @@ jobs:
 
       - run: npm ci
 
-      - run: npm run lint
-
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run: npm run lint
+
 
 workflows:
   version: 2
